@@ -1,12 +1,17 @@
-use std::io;
+mod cast_string_into_i32;
 
 fn main() {
-    println!("Guess the number");
-    let mut guess = String::new();
+    let mut input: String = String::new();
+    std::io::stdin().read_line(&mut input).expect("error");
 
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+    let input = input.trim();
+    let input: i32 = input.parse().unwrap();
 
-    println!("You guess: {}", guess);
+    let a: u32 = input as u32;
+
+    println!("{}", a + power(a, 2) + power(a, 3));
+}
+
+fn power(a: u32, x: u32) -> u32 {
+    a.pow(x)
 }
