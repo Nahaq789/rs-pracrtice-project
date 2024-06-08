@@ -2,19 +2,15 @@ use proconio::input;
 
 fn main() {
     input! {
-
-        n: i32, a: i32, b: i32
+        n: i64
     }
-
-    let mut res = 0;
-    for n in 0..=n {
-        let mut n_string = n.to_string();
-        let mut n_iter = n_string.chars().map(|n| n.to_digit(10).unwrap());
-        let n_sum: i32 = n_iter.fold(0, |sum, n| sum + n as i32);
-
-        if n_sum >= a && n_sum <= b {
-            res += n;
-        }
+    let mut s = String::new();
+    let mut result: i64 = 0;
+    let mut count = 0;
+    for i in 0..n {
+        //s += &*n.to_string();
+        count += n % 998244353 * 11111;
     }
-    println!("{}", res);
+    //result = (s.parse::<i64>().unwrap()) % 998244353;
+    println!("{}", count)
 }
